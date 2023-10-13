@@ -39,37 +39,15 @@ app.post("/upload", checkAuth, upload.single("image"), (req, res) => {
   });
 });
 //user
-app.post(
-  "/auth/login",
-  loginValidation,
-  handleValidationErrors,
-  UserControllers.login
-);
-app.post(
-  "/auth/register",
-  registerValidation,
-  handleValidationErrors,
-  UserControllers.register
-);
+app.post("/auth/login", loginValidation,handleValidationErrors, UserControllers.login);
+app.post("/auth/register", registerValidation,handleValidationErrors, UserControllers.register);
 app.get("/auth/user", checkAuth, UserControllers.userInfo);
 //post
 app.get("/posts", PostControllers.getAll);
 app.get("/posts/:id", PostControllers.getOne);
-app.post(
-  "/posts",
-  checkAuth,
-  postCreateValidation,
-  handleValidationErrors,
-  PostControllers.create
-);
-app.patch(
-  "/posts/:id",
-  checkAuth,
-  handleValidationErrors,
-  PostControllers.update
-);
+app.post("/posts", checkAuth, postCreateValidation,handleValidationErrors, PostControllers.create);
+app.patch("/posts/:id", checkAuth, PostControllers.update);
 app.delete("/posts/:id", checkAuth, PostControllers.remove);
-
 app.listen(3000, (err) => {
   if (err) {
     return console.log(err);

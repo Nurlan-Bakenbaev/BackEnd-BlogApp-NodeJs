@@ -62,12 +62,7 @@ app.post(
   handleValidationErrors,
   PostControllers.create
 );
-app.patch(
-  "/posts/:id",
-  checkAuth,
-  handleValidationErrors,
-  PostControllers.update
-);
+app.patch("/posts/:id", checkAuth, handleValidationErrors,, PostControllers.update);
 app.delete("/posts/:id", checkAuth, PostControllers.remove);
 
 app.listen(3000, (err) => {

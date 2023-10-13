@@ -1,3 +1,4 @@
+import { validationResult } from "express-validator";
 import UserModel from "../models/User.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
