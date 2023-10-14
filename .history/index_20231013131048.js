@@ -14,7 +14,7 @@ import handleValidationErrors from "./utils/handleValidationErrors.js";
 
 mongoose
   .connect(
-     )
+   )
   .then(() => console.log("db ok"))
   .catch((err) => console.log(err));
 

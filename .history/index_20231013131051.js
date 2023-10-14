@@ -13,8 +13,7 @@ import * as PostControllers from "./controllers/PostController.js";
 import handleValidationErrors from "./utils/handleValidationErrors.js";
 
 mongoose
-  .connect(
-     )
+  .connect(MONGODB_URI)
   .then(() => console.log("db ok"))
   .catch((err) => console.log(err));
 

@@ -1,7 +1,6 @@
 import express from "express";
 import mongoose from "mongoose";
 import multer from "multer";
-
 import {
   loginValidation,
   postCreateValidation,
@@ -11,13 +10,11 @@ import checkAuth from "./utils/checkAuth.js";
 import * as UserControllers from "./controllers/UserController.js";
 import * as PostControllers from "./controllers/PostController.js";
 import handleValidationErrors from "./utils/handleValidationErrors.js";
-
+require("dotenv").config();
 mongoose
-  .connect(
-     )
+  .connect(process.env.MONGODB_URI)
   .then(() => console.log("db ok"))
   .catch((err) => console.log(err));
-
 const app = express();
 
 const storage = multer.diskStorage({
